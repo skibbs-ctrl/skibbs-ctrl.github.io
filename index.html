@@ -9,6 +9,16 @@
 <link href='https://fonts.googleapis.com/css?family=Palette Mosaic' rel='stylesheet'>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel = "stylesheet" href = "css/stylesheet.css">
+<meta property="og:title" content="Max Klot" />
+<meta property="og:description" content="Programmer, Musician, and Creative" />
+<meta property="og:image" content="resources/meta_og_img.jpg" />
+<meta property="og:image:width" content="3456" />
+<meta property="og:image:height" content="3456" />
+<meta property="og:image:alt" content="Max Klot headshot" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:url" content="https://www.maxklot.com" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Max Klot" />
 </head>
 <body>
 
@@ -108,76 +118,144 @@
     <!-- Experience / Co-op -->
     <p class="section-title">Experience</p>
 
-    <div class="coop-card" id="coopCard">
-      <div class="coop-header">
-        <div class="coop-company">
-          <span class="coop-company-name">Alpine Software</span>
-          <span class="coop-role">Software Developer</span>
-          <span class="coop-location">Fairport, NY</span>
-        </div>
-        <div class="coop-meta">
-          <span class="coop-date">May 2025 – August 2026 </span>
-          <span class="coop-badge">Co-op</span>
-        </div>
-      </div>
+    <!-- ── EXPERIENCE CAROUSEL ── -->
+    <div class="exp-carousel" id="expCarousel">
+      <div class="exp-track" id="expTrack">
 
-      <div class="coop-body">
-        <!-- Left: description + highlights -->
-        <div class="coop-desc">
-          <p>Alpine Software is a Rochester-based Firehouse Records Management System Software Company. 
-            I worked closely with our development, support, and implementation teams, as well as clients, 
-            on projects in our flagship desktop system, mobile applications and backend services.
-          </p>
-          <ul class="coop-highlights">
-            <li>Create, maintain, and document new and existing software application features. </li>
-            <li>Meet and communicate with clients to scope requirements and ensure customer satisfaction</li>
-            <li>Train new co-op developers</li>
-            <li>Create documentation for common or discovered development processes</li>
-          </ul>
-          <div class="project-tags" style="margin-top:16px; gap:6px; display:flex; flex-wrap:wrap;">
-            <span class="ptag">Delphi</span>
-            <span class="ptag">SQL</span>
-            <span class="ptag">Jira</span>
-            <span class="ptag">Bitbucket</span>
-            <span class="ptag">Zendesk</span>
+        <!-- ═══ EXPERIENCE 1: Alpine Software ═══ -->
+        <div class="exp-slide">
+          <div class="coop-card">
+            <div class="coop-header">
+              <div class="coop-company">
+                <span class="coop-company-name">Alpine Software</span>
+                <span class="coop-role">Software Developer</span>
+                <span class="coop-location">Fairport, NY</span>
+              </div>
+              <div class="coop-meta">
+                <span class="coop-date">May 2025 – August 2026</span>
+                <span class="coop-badge">Co-op</span>
+              </div>
+            </div>
+
+            <div class="coop-body">
+              <!-- Left: description + highlights -->
+              <div class="coop-desc">
+                <p>Alpine Software is a Rochester-based Firehouse Records Management System Software Company. 
+                  I worked closely with our development, support, and implementation teams, as well as clients, 
+                  on projects in our flagship desktop system, mobile applications and backend services.
+                </p>
+                <ul class="coop-highlights">
+                  <li>Create, maintain, and document new and existing software application features.</li>
+                  <li>Meet and communicate with clients to scope requirements and ensure customer satisfaction</li>
+                  <li>Train new co-op developers</li>
+                  <li>Create documentation for common or discovered development processes</li>
+                </ul>
+                <div class="project-tags" style="margin-top:16px; gap:6px; display:flex; flex-wrap:wrap;">
+                  <span class="ptag">Delphi</span>
+                  <span class="ptag">SQL</span>
+                  <span class="ptag">Jira</span>
+                  <span class="ptag">Bitbucket</span>
+                  <span class="ptag">Zendesk</span>
+                </div>
+              </div>
+
+              <!-- Right: auto-rotating photo carousel -->
+              <div class="coop-carousel">
+                <div class="carousel-track">
+                  <div class="carousel-slide">
+                    <img src="resources/coop_photo2.jpg" alt="Co-op photo 1" />
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="resources/coop_photo1.jpg" alt="Co-op photo 2" />
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="resources/coop_photo3.jpg" alt="Co-op photo 3" />
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="resources/coop_photo4.jpg" alt="Co-op photo 4" />
+                  </div>
+                </div>
+                <button class="carousel-arrow prev" aria-label="Previous photo">&#8592;</button>
+                <button class="carousel-arrow next" aria-label="Next photo">&#8594;</button>
+                <div class="carousel-dots"></div>
+              </div>
+            </div>
           </div>
         </div>
+        <!-- ═══ END EXPERIENCE 1 ═══ -->
 
-        <!-- Right: auto-rotating photo carousel -->
-        <div class="coop-carousel" id="coopCarousel">
-          <div class="carousel-track" id="carouselTrack">
-
-             <!-- Slide 1 -->
-            <div class="carousel-slide">
-              <img src="resources/coop_photo2.jpg" alt="Co-op photo 1" />
+        <!-- ═══ EXPERIENCE 2: RIT ═══
+             To add photos: populate the .carousel-slide img srcs below.
+             To skip photos entirely: remove the .coop-carousel div
+             and add class "coop-body--full" to .coop-body. -->
+        <div class="exp-slide">
+          <div class="coop-card">
+            <div class="coop-header">
+              <div class="coop-company">
+                <span class="coop-company-name">Rochester Institute of Technology</span>
+                <span class="coop-role">Student Ambassador Captain</span>
+                <span class="coop-location">Henrietta, NY</span>
+              </div>
+              <div class="coop-meta">
+                <span class="coop-date">Jan 2023 – Present</span>
+                <span class="coop-badge">Part-Time</span>
+              </div>
             </div>
+            <div class="coop-body">
+              <div class="coop-desc">
+                <p>I work with RIT Admissions as a Student Ambassador, giving tours, participating
+                  in panels and webinars, engaging with prospective students, and serving as a 
+                  representative for the University. 
+                </p>
+                <ul class="coop-highlights">
+                  <li>Conduct informative tours for prospective RIT students and families</li>
+                  <li>Participate in panels, webinars, and other admissions events.</li>
+                  <li>Train, evaluate, and hire new ambassadors</li>
+                </ul>
+                <div class="project-tags" style="margin-top:16px; gap:6px; display:flex; flex-wrap:wrap;">
+                  <span class="ptag">Leadership</span>
+                  <span class="ptag">Communication</span>
+                  <span class="ptag">Public Speaking</span>
+                </div>
+              </div>
 
-            <!-- Slide 2 — replace src with your actual photo path -->
-            <div class="carousel-slide">
-              <img src="resources/coop_photo1.jpg" alt="Co-op photo 2" />
+              <!-- Photo carousel — replace src values with your own photos.
+                   Add or remove .carousel-slide divs as needed. -->
+              <div class="coop-carousel">
+                <div class="carousel-track">
+                  <div class="carousel-slide">
+                    <img src="resources/admissions_photo1.jpg" alt="Admissions Photo 1" />
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="resources/admissions_photo2.jpg" alt="Admissions Photo 2" />
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="resources/admissions_photo3.jpg" alt="Admissions Photo 3" />
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="resources/admissions_photo4.jpg" alt="Admissions Photo 4" />
+                  </div>
+                </div>
+
+                <button class="carousel-arrow prev" aria-label="Previous photo">&#8592;</button>
+                <button class="carousel-arrow next" aria-label="Next photo">&#8594;</button>
+                <div class="carousel-dots"></div>
+              </div>
             </div>
-
-            <!-- Slide 3 -->
-            <div class="carousel-slide">
-              <img src="resources/coop_photo3.jpg" alt="Co-op photo 3" />
-            </div>
-
-            <!-- Slide 4 -->
-            <div class="carousel-slide">
-              <img src="resources/coop_photo4.jpg" alt="Co-op photo 4" />
-            </div>
-
           </div>
-
-          <!-- Arrows -->
-          <button class="carousel-arrow prev" id="carouselPrev" aria-label="Previous photo">&#8592;</button>
-          <button class="carousel-arrow next" id="carouselNext" aria-label="Next photo">&#8594;</button>
-
-          <!-- Dot indicators -->
-          <div class="carousel-dots" id="carouselDots"></div>
         </div>
+        <!-- ═══ END EXPERIENCE 2 ═══ -->
+
+      </div><!-- /exp-track -->
+
+      <!-- Experience carousel navigation -->
+      <div class="exp-carousel-nav">
+        <button class="exp-arrow" id="expPrev" aria-label="Previous experience">&#8592;</button>
+        <div class="exp-dots" id="expDots"></div>
+        <button class="exp-arrow" id="expNext" aria-label="Next experience">&#8594;</button>
       </div>
     </div>
+    <!-- ── END EXPERIENCE CAROUSEL ── -->
 
     <hr class="accent-divider">
 
