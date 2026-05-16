@@ -381,7 +381,7 @@ body {
 /* Coursework */
 .coursework-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  /*grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));*/
   gap: 12px;
   margin-bottom: 60px;
 }
@@ -447,8 +447,13 @@ body {
 [data-theme="light"] .courtyard-img.white-ver { filter: invert(1); }
 
 
-.max-klot-text {
+.max {
   font-family: 'Palette Mosaic';font-size: 48px;
+  word-spacing: 0;
+}
+
+#klot{
+  padding-left: 15px
 }
 
 .music-guitar-portrait {
@@ -508,7 +513,7 @@ body {
 
 .signature-wrap {
   text-align: right;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 .signature-img {
   height: 110px;
@@ -749,14 +754,16 @@ body::after {
 
 #scroll-hint{
   opacity: 1;
-  transition: opacity 0.5s ease;
+  transition: opacity .7s ease;
+  animation: pulse 2s ease-in-out infinite;
 }
 
 #scroll-hint.hidden {
-  opacity: 0;
+  animation: none;
+  opacity: 0 !important;
 }
 
-@keyframes pulse { 0%,100%{opacity:0.5} 50%{opacity:1} }
+/*@keyframes pulse { 0%,100%{opacity:0.5} 50%{opacity:1} }*/
 </style>
 </head>
 <body>
@@ -805,7 +812,9 @@ body::after {
     <div class="pro-intro">
       <div class="pro-intro-text">
         <h2>Developer,<br><em>tinkerer,</em><br>problem-solver.</h2>
-        <p>My favorite </p>
+        <p>I'm a fourth year computer science student at the Rochester Institute of Technology. 
+          I have experience programming in Java, Python, Pascal, C, and JavaScript/TypeScript, and I also have experience with REST, UNIX, SQL, and Web Development. 
+          I'm planning on getting my B.S. in Computer Science in 2027, and my M.S. in Cybersecurity in 2028! </p>
       </div>
       <img class="pro-portrait" src="resources/computer_drawn.png" alt="Max with laptop" />
     </div>
@@ -813,22 +822,15 @@ body::after {
     <!-- Skills -->
     <p class="section-title">Skills & Tools</p>
     <div class="skills-grid mb40">
-      <div class="skill-tag">JavaScript</div>
-      <div class="skill-tag">TypeScript</div>
-      <div class="skill-tag">React</div>
-      <div class="skill-tag">Node.js</div>
-      <div class="skill-tag">Python</div>
       <div class="skill-tag">Java</div>
-      <div class="skill-tag">C / C++</div>
-      <div class="skill-tag">HTML/CSS</div>
+      <div class="skill-tag">C</div>
+      <div class="skill-tag">Python</div>
+      <div class="skill-tag">Delphi</div>
+      <div class="skill-tag">HTML/CSS/JS</div>
       <div class="skill-tag">SQL</div>
+      <div class="skill-tag">Jira</div>
       <div class="skill-tag">Git</div>
-      <div class="skill-tag">Linux</div>
-      <div class="skill-tag">Figma</div>
-      <div class="skill-tag">REST APIs</div>
-      <div class="skill-tag">Firebase</div>
-      <div class="skill-tag">TailwindCSS</div>
-      <div class="skill-tag">Photography</div>
+      <div class="skill-tag">HTML/CSS</div>
     </div>
 
     <hr class="accent-divider">
@@ -837,37 +839,22 @@ body::after {
     <p class="section-title">Projects</p>
     <div class="projects-grid mb40">
       <div class="project-card">
-        <h3>Personal Portfolio</h3>
-        <p>This very site — designed from scratch with layered cutout photography, section theming, and hand-crafted editorial aesthetics.</p>
+        <h3>courtyardtheband.com</h3>
+        <p>Website I designed for my band, Courtyard.</p>
         <div class="project-tags">
           <span class="ptag">HTML</span>
           <span class="ptag">CSS</span>
-          <span class="ptag">JS</span>
+          <span class="ptag">Bootstrap</span>
         </div>
       </div>
       <div class="project-card">
-        <h3>Campus Event App</h3>
-        <p>React Native mobile app for discovering and RSVPing to campus events. Integrated with a live Firebase backend and push notifications.</p>
+        <h3>U-Fund</h3>
+        <p>My Introduction to Software Engineering group project, an angular-based web application designed
+          for a fictitious animal philanthropy group. Won award amongst class for best project. </p>
         <div class="project-tags">
-          <span class="ptag">React Native</span>
-          <span class="ptag">Firebase</span>
-        </div>
-      </div>
-      <div class="project-card">
-        <h3>Film Photography Archive</h3>
-        <p>A digital archive and tagging system for analog film photography. Custom metadata schema, search, and gallery rendering engine.</p>
-        <div class="project-tags">
-          <span class="ptag">Python</span>
-          <span class="ptag">SQLite</span>
-        </div>
-      </div>
-      <div class="project-card">
-        <h3>Music Practice Tracker</h3>
-        <p>Web app to log and visualize guitar practice sessions. Streak tracking, goal-setting, and audio note attachments.</p>
-        <div class="project-tags">
-          <span class="ptag">React</span>
-          <span class="ptag">Node.js</span>
-          <span class="ptag">MongoDB</span>
+          <span class="ptag">Angular</span>
+          <span class="ptag">REST</span>
+          <span class="ptag">TS</span>
         </div>
       </div>
     </div>
@@ -877,16 +864,21 @@ body::after {
     <!-- Coursework -->
     <p class="section-title">Relevant Coursework</p>
     <div class="coursework-list mb40">
-      <div class="course-item">Data Structures & Algorithms</div>
-      <div class="course-item">Systems Programming</div>
-      <div class="course-item">Web Development</div>
-      <div class="course-item">Computer Organization</div>
-      <div class="course-item">Discrete Mathematics</div>
-      <div class="course-item">Linear Algebra</div>
-      <div class="course-item">Calculus III</div>
-      <div class="course-item">Software Engineering</div>
-      <div class="course-item">Human-Computer Interaction</div>
-      <div class="course-item">Database Systems</div>
+      <div class="course-item">CSCI 242- CS for AP Students</div>
+      <div class="course-item">CSCI 243- Mechanics of Programming</div>
+      <div class="course-item">CSCI 250- Concepts of Computer Systems</div>
+      <div class="course-item">CSCI 251- Concepts of Parallel and Distributed Systems</div>
+      <div class="course-item">CSCI 261- Analysis of Algorithms</div>
+      <div class="course-item">CSCI 262- Introduction to Computer Science Theory</div>
+      <div class="course-item">CSCI 320- Principles of Data Management</div>
+      <div class="course-item">CSCI 331- Introduction to Artifical Intelligence</div>
+      <div class="course-item">CSCI 471- Professional Communications</div>
+      <div class="course-item">SWEN 261- Introduction to Software Engineering</div>
+      <div class="course-item">MATH 181- Calculus I</div>
+      <div class="course-item">MATH 182- Calculus II</div>
+      <div class="course-item">MATH 190- Discrete Mathematics for Computing</div>
+      <div class="course-item">MATH 241- Linear Algebra</div>
+      <div class="course-item">MATH 251- Probability and Statistics</div>
     </div>
 
     <!-- Footer Links -->
@@ -928,7 +920,7 @@ body::after {
           Check out our debut album on your favorite streaming platform!
         </p>
 
-        <p class="max-klot-text" alt="Max Klot Logo" id="maxKlotLogo" />MAX KLOT</p>
+        <span class="max" alt="Max Klot Logo" id="max" />MAX</span><span alt = "Max Klot Logo" id = "klot" class = "max">KLOT</span>
 
         <p class="music-desc">
           I also sometimes make music as a solo endeavor- during the pandemic, I taught myself how to record, mix, and produce music.
@@ -1137,14 +1129,16 @@ function switchSection(idx) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-window.onscroll = function() {
-  // Check if the user has reached the bottom of the page
-  if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-    document.getElementById('scroll-hint').classList.add('hidden');
+window.addEventListener('scroll', () => {
+  const scrollHint = document.getElementById('scroll-hint');
+
+  if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 5) {
+    scrollHint.classList.add('hidden');
   } else {
-    document.getElementById('scroll-hint').classList.remove('hidden');
+    scrollHint.classList.remove('hidden');
   }
-};
+  console.log("test");
+});
 
 document.querySelectorAll('.banner-btn').forEach((btn, i) => {
   btn.addEventListener('click', () => switchSection(i));
