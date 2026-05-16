@@ -423,6 +423,213 @@ body {
   background: rgba(0,0,0,0.02);
 }
 
+/* ─── CO-OP / EXPERIENCE SECTION ────────────────────────── */
+.coop-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 60px;
+  transition: box-shadow 0.3s;
+  position: relative;
+}
+.coop-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-pro), color-mix(in srgb, var(--accent-pro) 40%, transparent));
+}
+.coop-card:hover { box-shadow: 0 12px 40px var(--shadow); }
+
+.coop-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 28px 28px 0;
+  flex-wrap: wrap;
+}
+.coop-company { display: flex; flex-direction: column; gap: 4px; }
+
+.coop-location{
+  font-family: 'Playfair Display', serif;
+  font-size: 14px
+}
+
+.coop-company-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(20px, 3vw, 26px);
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.1;
+}
+.coop-role {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--accent-pro);
+  letter-spacing: 0.04em;
+}
+.coop-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+.coop-date {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text3);
+  font-weight: 500;
+}
+.coop-badge {
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 4px;
+  background: rgba(192,57,43,0.1);
+  color: var(--accent-pro);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+.coop-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  padding: 24px 28px 28px;
+}
+.coop-desc {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--text2);
+}
+.coop-desc p { margin-bottom: 14px; }
+.coop-desc p:last-child { margin-bottom: 0; }
+.coop-highlights {
+  list-style: none;
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.coop-highlights li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.5;
+}
+.coop-highlights li::before {
+  content: '→';
+  color: var(--accent-pro);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* Carousel */
+.coop-carousel {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--bg2);
+  aspect-ratio: 4/3;
+  min-height: 200px;
+}
+.carousel-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.carousel-slide {
+  min-width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg2);
+  overflow: hidden;
+}
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* Placeholder slides (until real images are added) */
+.carousel-slide-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--text3);
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  background: linear-gradient(135deg, var(--bg2) 0%, color-mix(in srgb, var(--accent-pro) 8%, var(--bg2)) 100%);
+}
+.carousel-slide-placeholder .slide-icon { font-size: 36px; opacity: 0.4; }
+.carousel-slide-placeholder .slide-label { text-transform: uppercase; letter-spacing: 0.12em; font-size: 11px; font-weight: 500; opacity: 0.6; }
+
+.carousel-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 2;
+}
+.carousel-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.45);
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  transition: background 0.3s, transform 0.2s;
+}
+.carousel-dot.active {
+  background: #fff;
+  transform: scale(1.25);
+}
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.32);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: background 0.2s;
+  backdrop-filter: blur(4px);
+}
+.carousel-arrow:hover { background: rgba(0,0,0,0.55); }
+.carousel-arrow.prev { left: 8px; }
+.carousel-arrow.next { right: 8px; }
+
+@media (max-width: 700px) {
+  .coop-body { grid-template-columns: 1fr; }
+  .coop-header { flex-direction: column; }
+  .coop-meta { align-items: flex-start; }
+}
+
 /* ─── MUSIC SECTION ─────────────────────────────────────── */
 .music-hero {
   display: grid;
@@ -861,6 +1068,82 @@ body::after {
 
     <hr class="accent-divider">
 
+    <!-- Experience / Co-op -->
+    <p class="section-title">Experience</p>
+
+    <div class="coop-card" id="coopCard">
+      <div class="coop-header">
+        <div class="coop-company">
+          <span class="coop-company-name">Alpine Software</span>
+          <span class="coop-role">Software Developer</span>
+          <span class="coop-location">Fairport, NY</span>
+        </div>
+        <div class="coop-meta">
+          <span class="coop-date">May 2025 – August 2026 </span>
+          <span class="coop-badge">Co-op</span>
+        </div>
+      </div>
+
+      <div class="coop-body">
+        <!-- Left: description + highlights -->
+        <div class="coop-desc">
+          <p>Alpine Software is a Rochester-based Firehouse Records Management System Software Company. 
+            I worked closely with our development, support, and implementation teams, as well as clients, 
+            on projects in our flagship desktop system, mobile applications and backend services.
+          </p>
+          <ul class="coop-highlights">
+            <li>Create, maintain, and document new and existing software application features. </li>
+            <li>Meet and communicate with clients to scope requirements and ensure customer satisfaction</li>
+            <li>Train new co-op developers</li>
+            <li>Create documentation for common or discovered development processes</li>
+          </ul>
+          <div class="project-tags" style="margin-top:16px; gap:6px; display:flex; flex-wrap:wrap;">
+            <span class="ptag">Delphi</span>
+            <span class="ptag">SQL</span>
+            <span class="ptag">Jira</span>
+            <span class="ptag">Bitbucket</span>
+            <span class="ptag">Zendesk</span>
+          </div>
+        </div>
+
+        <!-- Right: auto-rotating photo carousel -->
+        <div class="coop-carousel" id="coopCarousel">
+          <div class="carousel-track" id="carouselTrack">
+
+             <!-- Slide 1 -->
+            <div class="carousel-slide">
+              <img src="resources/coop_photo2.jpg" alt="Co-op photo 1" />
+            </div>
+
+            <!-- Slide 2 — replace src with your actual photo path -->
+            <div class="carousel-slide">
+              <img src="resources/coop_photo1.jpg" alt="Co-op photo 2" />
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="carousel-slide">
+              <img src="resources/coop_photo3.jpg" alt="Co-op photo 3" />
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="carousel-slide">
+              <img src="resources/coop_photo4.jpg" alt="Co-op photo 4" />
+            </div>
+
+          </div>
+
+          <!-- Arrows -->
+          <button class="carousel-arrow prev" id="carouselPrev" aria-label="Previous photo">&#8592;</button>
+          <button class="carousel-arrow next" id="carouselNext" aria-label="Next photo">&#8594;</button>
+
+          <!-- Dot indicators -->
+          <div class="carousel-dots" id="carouselDots"></div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="accent-divider">
+
     <!-- Coursework -->
     <p class="section-title">Relevant Coursework</p>
     <div class="coursework-list mb40">
@@ -884,19 +1167,19 @@ body::after {
     <!-- Footer Links -->
     <p class="section-title">Find Me</p>
     <div class="footer-links">
-      <a class="footer-link" href="#" aria-label="GitHub">
+      <a class="footer-link" href="https://github.com/Lilskibby" aria-label="GitHub">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
         GitHub
       </a>
-      <a class="footer-link" href="#" aria-label="LinkedIn">
+      <a class="footer-link" href="https://www.linkedin.com/in/max-klot930/" aria-label="LinkedIn">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         LinkedIn
       </a>
-      <a class="footer-link" href="#" aria-label="Email">
+      <a class="footer-link" href="mailto:maxbklot@gmail.com" aria-label="Email">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         Email
       </a>
-      <a class="footer-link" href="#" aria-label="Resume">
+      <a class="footer-link" href="resources/resume.pdf" aria-label="Resume">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
         Résumé
       </a>
@@ -1021,19 +1304,19 @@ body::after {
     <div class="adv-stats mb40">
       <div class="adv-stat-card">
         <span class="big">14+</span>
-        <span class="small">States visited</span>
+        <span class="small">xx</span>
       </div>
       <div class="adv-stat-card">
         <span class="big">200+</span>
-        <span class="small">Trail miles</span>
+        <span class="small">xx</span>
       </div>
       <div class="adv-stat-card">
         <span class="big">47</span>
-        <span class="small">Rolls of film</span>
+        <span class="small">xx</span>
       </div>
       <div class="adv-stat-card">
         <span class="big">∞</span>
-        <span class="small">More to go</span>
+        <span class="small">xx</span>
       </div>
     </div> -->
 
@@ -1058,11 +1341,6 @@ body::after {
       <div class="skill-tag">New York, NY</div>
       <div class="skill-tag">Westchester, NY</div>
       <div class="skill-tag">Rochester, NY</div>
-      <!--<div class="skill-tag">Headlamp</div>
-      <div class="skill-tag">A Good Book</div>
-      <div class="skill-tag">Portable Speaker</div>
-      <div class="skill-tag">Extra Socks</div>
-      <div class="skill-tag">Instant Coffee</div>-->
     </div>
   </div>
 </section>
@@ -1205,6 +1483,61 @@ setTimeout(() => {
 
 updateMusicLogo();
 updateSignature();
+
+// ─── CO-OP CAROUSEL ───────────────────────────────────────
+(function() {
+  const track   = document.getElementById('carouselTrack');
+  const dotsWrap = document.getElementById('carouselDots');
+  if (!track) return;
+
+  const slides = track.querySelectorAll('.carousel-slide');
+  const total  = slides.length;
+  let current  = 0;
+  let autoTimer;
+
+  // Build dots
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Go to photo ' + (i + 1));
+    dot.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(dot);
+  });
+
+  function goTo(idx) {
+    current = (idx + total) % total;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    dotsWrap.querySelectorAll('.carousel-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === current);
+    });
+  }
+
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
+
+  document.getElementById('carouselNext').addEventListener('click', () => { next(); resetTimer(); });
+  document.getElementById('carouselPrev').addEventListener('click', () => { prev(); resetTimer(); });
+
+  function resetTimer() {
+    clearInterval(autoTimer);
+    autoTimer = setInterval(next, 3500);
+  }
+
+  // Pause on hover
+  const carousel = document.getElementById('coopCarousel');
+  carousel.addEventListener('mouseenter', () => clearInterval(autoTimer));
+  carousel.addEventListener('mouseleave', () => resetTimer());
+
+  // Touch / swipe support
+  let touchStartX = 0;
+  carousel.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  carousel.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 40) { dx < 0 ? next() : prev(); resetTimer(); }
+  });
+
+  resetTimer();
+})();
 
 // ─── HERO PORTRAIT TRANSITION STYLES ──────────────────
 const heroImg = document.getElementById('heroPortrait');
