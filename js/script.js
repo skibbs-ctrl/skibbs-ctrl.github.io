@@ -134,10 +134,14 @@ setTimeout(() => {
 updateMusicLogo();
 updateSignature();
 
-// ─── CO-OP CAROUSEL ───────────────────────────────────────
-(function() {
-  const track   = document.getElementById('carouselTrack');
-  const dotsWrap = document.getElementById('carouselDots');
+// ─── PHOTO CAROUSELS ──────────────────────────────────────
+// Works for any number of .coop-carousel elements on the page.
+// Each carousel is self-contained — no IDs needed.
+function initPhotoCarousel(carousel) {
+  const track    = carousel.querySelector('.carousel-track');
+  const dotsWrap = carousel.querySelector('.carousel-dots');
+  const prevBtn  = carousel.querySelector('.carousel-arrow.prev');
+  const nextBtn  = carousel.querySelector('.carousel-arrow.next');
   if (!track) return;
 
   const slides = track.querySelectorAll('.carousel-slide');
@@ -165,16 +169,14 @@ updateSignature();
   function next() { goTo(current + 1); }
   function prev() { goTo(current - 1); }
 
-  document.getElementById('carouselNext').addEventListener('click', () => { next(); resetTimer(); });
-  document.getElementById('carouselPrev').addEventListener('click', () => { prev(); resetTimer(); });
+  nextBtn.addEventListener('click', () => { next(); resetTimer(); });
+  prevBtn.addEventListener('click', () => { prev(); resetTimer(); });
 
   function resetTimer() {
     clearInterval(autoTimer);
     autoTimer = setInterval(next, 3500);
   }
 
-  // Pause on hover
-  const carousel = document.getElementById('coopCarousel');
   carousel.addEventListener('mouseenter', () => clearInterval(autoTimer));
   carousel.addEventListener('mouseleave', () => resetTimer());
 
@@ -187,8 +189,55 @@ updateSignature();
   });
 
   resetTimer();
-})();
+}
+
+// Init every photo carousel on the page
+document.querySelectorAll('.coop-carousel').forEach(initPhotoCarousel);
 
 // ─── HERO PORTRAIT TRANSITION STYLES ──────────────────
-const heroImg = document.getElementById('heroPortrait');
-heroImg.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+//const heroImg = document.getElementById('heroPortrait');
+//heroImg.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+
+// ─── EXPERIENCE CAROUSEL ───────────────────────────────
+(function () {
+  const track    = document.getElementById('expTrack');
+  const dotsWrap = document.getElementById('expDots');
+  const prevBtn  = document.getElementById('expPrev');
+  const nextBtn  = document.getElementById('expNext');
+  if (!track) return;
+
+  const slides = track.querySelectorAll('.exp-slide');
+  const total  = slides.length;
+  let current  = 0;
+
+  // Build dot indicators
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'exp-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Go to experience ' + (i + 1));
+    dot.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(dot);
+  });
+
+  function goTo(idx) {
+    current = (idx + total) % total;
+    // Slide the track
+    track.style.transform = `translateX(-${current * 100}%)`;
+    // Update dots
+    dotsWrap.querySelectorAll('.exp-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === current);
+    });
+  }
+
+  prevBtn.addEventListener('click', () => goTo(current - 1));
+  nextBtn.addEventListener('click', () => goTo(current + 1));
+
+  // Swipe support
+  let touchStartX = 0;
+  const carousel = document.getElementById('expCarousel');
+  carousel.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  carousel.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 40) { dx < 0 ? goTo(current + 1) : goTo(current - 1); }
+  });
+})();

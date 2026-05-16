@@ -620,6 +620,92 @@ body {
   .coop-meta { align-items: flex-start; }
 }
 
+/* ─── EXPERIENCE CAROUSEL ────────────────────────────── */
+.exp-carousel {
+  margin-bottom: 60px;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+/* Remove coop-card's own bottom margin when inside the carousel */
+.exp-slide .coop-card {
+  margin-bottom: 0;
+}
+
+/* Full-width body variant (no photo carousel) */
+.coop-body--full {
+  grid-template-columns: 1fr !important;
+}
+
+.exp-track {
+  display: flex;
+  width: 100%;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.exp-slide {
+  flex: 0 0 100%;   /* don't grow, don't shrink, always full carousel width */
+  min-width: 0;     /* prevent flex blowout from inner content */
+}
+
+/* Navigation row: ← dots → */
+.exp-carousel-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 20px;
+  margin-bottom: 6px
+}
+
+.exp-arrow {
+  background: var(--card);
+  border: 1.5px solid var(--card-border);
+  color: var(--text2);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
+  flex-shrink: 0;
+}
+.exp-arrow:hover {
+  border-color: var(--accent-pro);
+  color: var(--accent-pro);
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+.exp-dots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.exp-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--card-border);
+  border: 1.5px solid var(--text3);
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s, border-color 0.3s;
+}
+.exp-dot.active {
+  background: var(--accent-pro);
+  border-color: var(--accent-pro);
+  transform: scale(1.35);
+}
+.exp-dot:hover:not(.active) {
+  border-color: var(--accent-pro);
+  background: rgba(192,57,43,0.18);
+}
+
 /* ─── MUSIC SECTION ─────────────────────────────────────── */
 .music-hero {
   display: grid;
@@ -911,6 +997,8 @@ body {
   .adv-portrait { height: 200px; justify-self: center; }
   .adv-stats { grid-template-columns: repeat(2, 1fr); }
   .music-stats { gap: 24px; }
+  .signature-wrap { text-align: center;}
+  .content { padding-bottom: 30px;}
 }
 
 @media (max-width: 480px) {
