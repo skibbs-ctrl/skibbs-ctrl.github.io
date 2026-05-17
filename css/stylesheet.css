@@ -731,12 +731,15 @@ body {
 
 
 .max {
-  font-family: 'Palette Mosaic';font-size: 48px;
+  font-family: 'Palette Mosaic';font-size: 64px;
   word-spacing: 0;
+  letter-spacing: 0.05em;
 }
 
+
 #klot{
-  padding-left: 15px
+  padding-left: 0.3em;
+  letter-spacing: 0.05em;
 }
 
 .music-guitar-portrait {
@@ -745,7 +748,7 @@ body {
   object-fit: contain;
   filter: drop-shadow(4px 8px 24px var(--shadow));
   justify-self: center;
-  transform: translateY(-20%);
+  transform: translateY(-10%);
   /*animation: float 6s ease-in-out infinite;*/
 }
 
