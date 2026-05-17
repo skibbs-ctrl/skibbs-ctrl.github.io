@@ -337,6 +337,11 @@ body {
   position: relative;
   overflow: hidden;
 }
+
+.project-card-wrap {
+  text-decoration: none;
+}
+
 .project-card::before {
   content: '';
   position: absolute;
