@@ -179,12 +179,12 @@ function initPhotoCarousel(carousel) {
 
   carousel.addEventListener('mouseenter', () => clearInterval(autoTimer));
   carousel.addEventListener('mouseleave', () => resetTimer());
-
+  
   // Touch / swipe support
   let touchStartX = 0;
-  carousel.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  carousel.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; e.stopPropagation(); }, { passive: true });
   carousel.addEventListener('touchend', e => {
-    const dx = e.changedTouches[0].clientX - touchStartX;
+    const dx = e.changedTouches[0].clientX - touchStartX; e.stopPropagation();
     if (Math.abs(dx) > 40) { dx < 0 ? next() : prev(); resetTimer(); }
   });
 
